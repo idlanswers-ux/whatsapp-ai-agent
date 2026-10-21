@@ -5,6 +5,10 @@ from fastapi.responses import HTMLResponse, PlainTextResponse
 from pydantic import BaseModel, Field
 from google import genai
 
+# Explicitly load and pass the API key from environment variables
+api_key = os.environ.get("GEMINI_API_KEY")
+client = genai.Client(api_key=api_key)
+
 # Initialize FastAPI
 app = FastAPI(title="IDL Answers - Production WhatsApp Bot")
 
